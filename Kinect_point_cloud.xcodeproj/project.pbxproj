@@ -13,6 +13,7 @@
 		A7C0D61E90A5E31756CB3030 /* ofxMultiKinectV2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 024A679F5A3B638E46C3F54F /* ofxMultiKinectV2.cpp */; };
 		B3ACFAB69F9C4AC9F6E8577E /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D32716F14E3E18BA93703F /* OpenCL.framework */; };
 		BB4BBB3B1D83469A007CBA2C /* libturbojpeg.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BB4BBB3A1D83469A007CBA2C /* libturbojpeg.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BB4BBB411D8347AD007CBA2C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BB4BBB401D8347AD007CBA2C /* main.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
 /* End PBXBuildFile section */
@@ -80,6 +81,8 @@
 		B520B4DB5BEB456424B45D93 /* libusbi.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = libusbi.h; path = ../../../addons/ofxMultiKinectV2/libs/libusb/include/libusb/libusbi.h; sourceTree = SOURCE_ROOT; };
 		B5AB4790CCBF9DC3BA442599 /* linux_usbfs.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = linux_usbfs.h; path = ../../../addons/ofxMultiKinectV2/libs/libusb/include/libusb/os/linux_usbfs.h; sourceTree = SOURCE_ROOT; };
 		BB4BBB3A1D83469A007CBA2C /* libturbojpeg.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libturbojpeg.dylib; sourceTree = "<group>"; };
+		BB4BBB3F1D834791007CBA2C /* ofApp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofApp.h; sourceTree = "<group>"; };
+		BB4BBB401D8347AD007CBA2C /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		C4E1FF8D818A69007A440173 /* logger.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = logger.h; path = ../../../addons/ofxMultiKinectV2/libs/libfreenect2/include/libfreenect2/logger.h; sourceTree = SOURCE_ROOT; };
 		C689BA6923DD80DB32E0FECE /* async_packet_processor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = async_packet_processor.h; path = ../../../addons/ofxMultiKinectV2/libs/libfreenect2/include/libfreenect2/async_packet_processor.h; sourceTree = SOURCE_ROOT; };
 		C9DF41FC543772A53EF4419D /* windows_common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = windows_common.h; path = ../../../addons/ofxMultiKinectV2/libs/libusb/include/libusb/os/windows_common.h; sourceTree = SOURCE_ROOT; };
@@ -264,6 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
+				BB4BBB3F1D834791007CBA2C /* ofApp.h */,
+				BB4BBB401D8347AD007CBA2C /* main.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -412,6 +417,7 @@
 			files = (
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				A7C0D61E90A5E31756CB3030 /* ofxMultiKinectV2.cpp in Sources */,
+				BB4BBB411D8347AD007CBA2C /* main.cpp in Sources */,
 				879FF62052195AD1A4F2D72E /* GpuRegistration.cpp in Sources */,
 				8D0B283FA19BACFC2D3533EE /* ofProtonect2.cpp in Sources */,
 				34A1CD0B670B0A4266464779 /* ofxTurboJpeg.cpp in Sources */,
