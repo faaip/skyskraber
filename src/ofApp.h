@@ -11,6 +11,8 @@
 
 #include "ofMain.h"
 #include "ofxMultiKinectV2.h"
+#include "GpuRegistration.h"
+
 
 class ofApp : public ofBaseApp{
 public:
@@ -21,6 +23,15 @@ public:
     void setup();
     void update();
     void draw();
+    
+    // GPU Registration
+    ofTexture colorTex0;
+    ofTexture depthTex0;
+    ofTexture irTex0;
+    GpuRegistration gr;
+    bool process_occlusion = true;
+    
+    
 };
 
 

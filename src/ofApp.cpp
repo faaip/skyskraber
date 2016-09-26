@@ -22,11 +22,24 @@ void ofApp::setup()
     ecam.setAutoDistance(false);
     ecam.setDistance(200);
     
+    gr.setup(kinect0.getProtonect(), 2);
+
+    
 }
 
 void ofApp::update() {
     kinect0.update();
     if (kinect0.isFrameNew()) {
+        // GR
+        colorTex0.loadData(kinect0.getColorPixelsRef());
+        depthTex0.loadData(kinect0.getDepthPixelsRef());
+        irTex0.loadData(kinect0.getIrPixelsRef());
+        
+        depthTex0.setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
+        gr.update(depthTex0, colorTex0, process_occlusion);
+        
+        
+        // Mesh
         mesh.clear();
         {
             int step = 2;
