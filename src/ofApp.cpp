@@ -7,6 +7,19 @@ void ofApp::setup()
     ofSetVerticalSync(true);
     ofSetFrameRate(60);
     
+    // GUI
+    gui.setup();
+    gui.add(screenRender.set("screenRender", true));
+    
+    // Syphon stuff
+    render.allocate(OUTPUT_WIDTH, OUTPUT_HEIGHT, GL_RGBA);
+    render.begin();
+    glClearColor(0.0, 0.0, 0.0, 0.0);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    render.end();
+    syphon.setName("kinect_point_cloud");
+    
+    // Kinect
     kinect0.open(false, true, 0);
     // Note :
     // Default OpenCL device might not be optimal.
@@ -66,8 +79,13 @@ void ofApp::update() {
 
 void ofApp::draw()
 {
-    ofClear(0);
+    render.begin();
     
+    glClearColor(0.0, 0.0, 0.0, 0.0);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+    ofClear(0);
+
     if (mesh.getVertices().size()) {
         ofPushStyle();
         glPointSize(2);
@@ -81,7 +99,12 @@ void ofApp::draw()
         ofPopStyle();
     }
     
-    ofDrawBitmapStringHighlight(ofToString(ofGetFrameRate()), 10, 20);
-    ofDrawBitmapStringHighlight("Device Count : " + ofToString(ofxMultiKinectV2::getDeviceCount()), 10, 40);
+    render.end();  // End off frame buffer
+    syphon.publishTexture(&render.getTexture());
+    
+    if(screenRender) render.draw(0, 0,ofGetWidth(),ofGetHeight());
+    if(!hideGui)gui.draw();
+    
+    ofSetWindowTitle("fps: " + ofToString(ofGetFrameRate()));
 }
 
