@@ -32,6 +32,9 @@ public:
         if(key == 'h'){
             hideGui = !hideGui;
         }
+        if(key == 'f'){
+            ofToggleFullscreen();
+        }
     }
     
     // GUI
@@ -40,6 +43,12 @@ public:
     ofParameter<bool> screenRender;
     ofParameter<bool> showAxis;
     ofParameter<int> backgroundColor;
+    ofParameter<bool> setBackground;
+    ofParameter<int> colorMode;
+    ofParameter<int> colorChange;
+    ofParameter<int> bottomThres;
+    ofParameter<int> topThres;
+
 
     // Syphon
     ofFbo render;
