@@ -38,18 +38,12 @@ public:
     bool hideGui = false;
     ofxPanel gui;
     ofParameter<bool> screenRender;
-    
+    ofParameter<bool> showAxis;
+    ofParameter<int> backgroundColor;
+
     // Syphon
     ofFbo render;
     ofxSyphonServer syphon;
-    
-    // GPU Registration
-    ofTexture colorTex0;
-    ofTexture depthTex0;
-    ofTexture irTex0;
-    GpuRegistration gr;
-    bool process_occlusion = true;
-    
     
 };
 

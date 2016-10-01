@@ -10,6 +10,9 @@ void ofApp::setup()
     // GUI
     gui.setup();
     gui.add(screenRender.set("screenRender", true));
+    gui.add(showAxis.set("showAxis", false));
+    gui.add(backgroundColor.set("backgroundColor", 0,0,255));
+    
     
     // Syphon stuff
     render.allocate(OUTPUT_WIDTH, OUTPUT_HEIGHT, GL_RGBA);
@@ -34,24 +37,13 @@ void ofApp::setup()
     
     ecam.setAutoDistance(false);
     ecam.setDistance(200);
-    
-    gr.setup(kinect0.getProtonect(), 2);
-
-    
 }
 
 void ofApp::update() {
+    ofSetBackgroundColor(backgroundColor);
+    
     kinect0.update();
     if (kinect0.isFrameNew()) {
-        // GR
-        colorTex0.loadData(kinect0.getColorPixelsRef());
-        depthTex0.loadData(kinect0.getDepthPixelsRef());
-        irTex0.loadData(kinect0.getIrPixelsRef());
-        
-        depthTex0.setTextureMinMagFilter(GL_NEAREST, GL_NEAREST);
-        gr.update(depthTex0, colorTex0, process_occlusion);
-        
-        
         // Mesh
         mesh.clear();
         {
@@ -63,7 +55,6 @@ void ofApp::update() {
                     float dist = kinect0.getDistanceAt(x, y);
                     if(dist > 50 && dist < 500) {
                         ofVec3f pt = kinect0.getWorldCoordinateAt(x, y, dist);
-                        
                         ofColor c;
                         float h = ofMap(dist, 50, 200, 0, 255, true);
                         c.setHsb(h, 255, 255);
@@ -75,22 +66,25 @@ void ofApp::update() {
             
         }
     }
+    
 }
 
 void ofApp::draw()
 {
     render.begin();
-    
-    glClearColor(0.0, 0.0, 0.0, 0.0);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//    
+//    glClearColor(0.0, 0.0, 0.0, 0.0);
+//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     ofClear(0);
-
+    
     if (mesh.getVertices().size()) {
         ofPushStyle();
         glPointSize(2);
         ecam.begin();
-        ofDrawAxis(100);
+        if(showAxis){
+            ofDrawAxis(100);
+        }
         ofPushMatrix();
         ofTranslate(0, 0, -100);
         mesh.draw();
