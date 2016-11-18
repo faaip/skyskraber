@@ -11,13 +11,14 @@ void ofApp::setup()
     gui.setup();
     gui.add(screenRender.set("screenRender", true));
     gui.add(showAxis.set("showAxis", false));
+    gui.add(freezeFrame.set("freeze frame", false));
     gui.add(backgroundColor.set("backgroundColor", 0,0,255));
     gui.add(setBackground.set("set background", true));
     gui.add(colorMode.set("color mode: ", 0, 0, 2));
     gui.add(colorChange.set("color change: ", 255,0,255));
     gui.add(bottomThres.set("btm thres: ", 50,0,200));
     gui.add(topThres.set("top thres: ", 200,0,800));
-
+    gui.add(backgroundThreshold.set("background dist ", 1000,50,1000));
     
     // Syphon stuff
     render.allocate(OUTPUT_WIDTH, OUTPUT_HEIGHT, GL_RGBA);
@@ -47,8 +48,8 @@ void ofApp::setup()
 void ofApp::update() {
     if(setBackground)ofSetBackgroundColor(backgroundColor,ofGetMouseX());
     
-    kinect0.update();
-    if (kinect0.isFrameNew()) {
+    if(!freezeFrame) kinect0.update();
+//    if (kinect0.isFrameNew()) {
         // Mesh
         mesh.clear();
         {
@@ -58,7 +59,7 @@ void ofApp::update() {
             for(int y = 0; y < h; y += step) {
                 for(int x = 0; x < w; x += step) {
                     float dist = kinect0.getDistanceAt(x, y);
-                    if(dist > 50 && dist < 500) {
+                    if(dist > 50 && dist < backgroundThreshold) {
                         ofVec3f pt = kinect0.getWorldCoordinateAt(x, y, dist);
                         ofColor c;
                         float h = ofMap(dist, bottomThres, topThres, 0, 255, true);
@@ -73,7 +74,7 @@ void ofApp::update() {
                         mesh.addVertex(pt);
                     }
                 }
-            }
+//            }
             
         }
     }

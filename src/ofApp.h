@@ -33,7 +33,14 @@ public:
             hideGui = !hideGui;
         }
         if(key == 'f'){
-            ofToggleFullscreen();
+            freezeFrame = !freezeFrame;
+        }
+        if(key == ' '){
+            ofPixels pixels;
+            render.readToPixels(pixels);
+            string name = ofGetTimestampString();
+            ofSaveImage(pixels, name + ".png", OF_IMAGE_QUALITY_BEST);
+            cout << " filed saved " << endl;
         }
     }
     
@@ -42,12 +49,15 @@ public:
     ofxPanel gui;
     ofParameter<bool> screenRender;
     ofParameter<bool> showAxis;
+    ofParameter<bool> freezeFrame;
     ofParameter<int> backgroundColor;
     ofParameter<bool> setBackground;
     ofParameter<int> colorMode;
     ofParameter<int> colorChange;
     ofParameter<int> bottomThres;
     ofParameter<int> topThres;
+    ofParameter<int> backgroundThreshold;
+
 
 
     // Syphon
