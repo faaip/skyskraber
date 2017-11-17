@@ -16,14 +16,14 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
                BuildableName = "Kinect_point_cloudDebug.app"
-               BlueprintName = "Kinect_point_cloud"
-               ReferencedContainer = "container:Kinect_point_cloud.xcodeproj">
+               BlueprintName = "Skyskraber"
+               ReferencedContainer = "container:Skyskraber.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
@@ -34,15 +34,15 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
             BuildableName = "Kinect_point_cloudDebug.app"
-            BlueprintName = "Kinect_point_cloud"
-            ReferencedContainer = "container:Kinect_point_cloud.xcodeproj">
+            BlueprintName = "Skyskraber"
+            ReferencedContainer = "container:Skyskraber.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -57,15 +57,15 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
             BuildableName = "Kinect_point_cloudDebug.app"
-            BlueprintName = "Kinect_point_cloud"
-            ReferencedContainer = "container:Kinect_point_cloud.xcodeproj">
+            BlueprintName = "Skyskraber"
+            ReferencedContainer = "container:Skyskraber.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -76,16 +76,16 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
             BuildableName = "Kinect_point_cloudDebug.app"
-            BlueprintName = "Kinect_point_cloud"
-            ReferencedContainer = "container:Kinect_point_cloud.xcodeproj">
+            BlueprintName = "Skyskraber"
+            ReferencedContainer = "container:Skyskraber.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug">
+      buildConfiguration = "Release">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

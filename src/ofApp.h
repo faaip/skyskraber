@@ -1,6 +1,6 @@
 //
 //  ofApp.h
-//  Kinect_point_cloud
+//  Skyskraber
 //
 //  Created by Frederik Tollund Juutilainen on 09/09/16.
 //
